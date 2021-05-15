@@ -26,14 +26,13 @@ export const handleRefreshToken = async (refreshToken, dispatch) => {
 
     localStorage.setItem("token", res.data.accessToken);
 
-    // if (res) {
     return res.data.accessToken;
-    // }
+
   } catch (err) {
     localStorage.removeItem("refreshToken");
-    // dispatch({
-    //   type: AUTH_ERROR,
-    // });
+    dispatch({
+      type: AUTH_ERROR,
+    });
   }
 };
 
